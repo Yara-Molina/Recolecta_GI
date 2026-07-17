@@ -1,0 +1,114 @@
+reporte,categoria_real,subtipo_real
+"la calle esta completamente cerrada por obra de pavimentacion",calle_tapada,total_en_reparacion
+"avenida bloqueada totalmente por trabajos de reparacion del drenaje",calle_tapada,total_en_reparacion
+"estan reparando la tuberia y cerraron la calle por completo",calle_tapada,total_en_reparacion
+"una cuadrilla esta arreglando el pavimento y bloquearon toda la calle",calle_tapada,total_en_reparacion
+"cierre total de la calle por obra de construccion",calle_tapada,total_en_reparacion
+"la calle esta totalmente tapada por maquinaria de reparacion",calle_tapada,total_en_reparacion
+"no se puede pasar la calle esta cerrada completa por la obra",calle_tapada,total_en_reparacion
+"bloquearon por completo el paso porque estan reparando el asfalto",calle_tapada,total_en_reparacion
+"la calle principal esta cerrada al cien por ciento por obras publicas",calle_tapada,total_en_reparacion
+"hay una cuadrilla trabajando y cerraron completamente la vialidad",calle_tapada,total_en_reparacion
+"la calle esta intransitable estan reparando una fuga de agua",calle_tapada,total_en_reparacion
+"cerraron toda la calle es urgente porque hay una obra grande",calle_tapada,total_en_reparacion
+"arbol caido bloquea totalmente la calle sera por un rato mientras lo quitan",calle_tapada,total_temporal
+"choque grave bloqueo por completo la avenida sera temporal en lo que retiran los carros",calle_tapada,total_temporal
+"hay un poste caido que bloquea toda la calle de manera momentanea",calle_tapada,total_temporal
+"la calle esta cerrada completamente por un accidente sera solo un rato",calle_tapada,total_temporal
+"manifestacion bloqueo totalmente la avenida sera temporal",calle_tapada,total_temporal
+"volcadura de un camion tapa por completo la calle momentaneamente",calle_tapada,total_temporal
+"cerraron toda la calle de emergencia pero es algo temporal",calle_tapada,total_temporal
+"un derrame de aceite bloqueo completamente el paso sera un rato mientras limpian",calle_tapada,total_temporal
+"estan reparando un carril de la avenida el resto sigue abierto",calle_tapada,parcial_en_reparacion
+"obra parcial en la calle solo cerraron un carril",calle_tapada,parcial_en_reparacion
+"hay una cuadrilla arreglando el pavimento en medio de la calle",calle_tapada,parcial_en_reparacion
+"reparacion de baches ocupa parcialmente la vialidad",calle_tapada,parcial_en_reparacion
+"estan arreglando el drenaje y ocuparon parcialmente la calle",calle_tapada,parcial_en_reparacion
+"cerraron un carril por obra de reparacion electrica",calle_tapada,parcial_en_reparacion
+"la cuadrilla esta reparando la banqueta y estorba un poco el paso",calle_tapada,parcial_en_reparacion
+"obra de bacheo bloquea parcialmente la calle",calle_tapada,parcial_en_reparacion
+"estan reparando un cable y dejaron medio bloqueada la calle",calle_tapada,parcial_en_reparacion
+"hay trabajos de reparacion que ocupan parte de la vialidad",calle_tapada,parcial_en_reparacion
+"un carro mal estacionado obstruye parcialmente la calle sera un rato",calle_tapada,parcial_temporal
+"hay escombro que tapa medio carril momentaneamente",calle_tapada,parcial_temporal
+"una rama caida obstruye parcialmente el paso ahorita",calle_tapada,parcial_temporal
+"contenedor de basura ocupa parte de la calle sera temporal",calle_tapada,parcial_temporal
+"un puesto ambulante bloquea parcialmente la vialidad por un rato",calle_tapada,parcial_temporal
+"material de construccion ocupa medio carril momentaneamente",calle_tapada,parcial_temporal
+"hay una fiesta con mesas que ocupan parcialmente la calle sera un rato",calle_tapada,parcial_temporal
+"un carro descompuesto estorba parcialmente el paso momentaneamente",calle_tapada,parcial_temporal
+"ramas de un arbol obstruyen medio carril ahorita",calle_tapada,parcial_temporal
+"socavon pequeno ocupa parte de la calle sera temporal mientras lo tapan",calle_tapada,parcial_temporal
+"un derrumbe de tierra impide el paso de vehiculos por completo",calle_tapada,total_en_reparacion
+"la vialidad quedo colapsada por el mal clima no se puede circular sera un rato",calle_tapada,total_temporal
+"un charco enorme no deja pasar bien por un lado de la calle",calle_tapada,parcial_temporal
+"la calle quedo atascada de autos por un choque menor",calle_tapada,parcial_temporal
+"el contenedor esta desbordado y no cabe mas basura",basura_no_recolectable,
+"hay bolsas de basura tiradas en la esquina desde hace dias",basura_no_recolectable,
+"el camion no paso y la basura sigue regada en la calle",basura_no_recolectable,
+"los costales de basura estan tirados frente al mercado",basura_no_recolectable,
+"el contenedor esta lleno y la basura se esta regando",basura_no_recolectable,
+"hay basura acumulada que no han recogido en la colonia",basura_no_recolectable,
+"las bolsas de basura estan desbordadas en la banqueta",basura_no_recolectable,
+"nadie recogio la basura de esta semana y ya esta apestando",basura_no_recolectable,
+"el bote de basura esta tirado y regado por todos lados",basura_no_recolectable,
+"hay demasiada basura que no cupo en el camion recolector",basura_no_recolectable,
+"los vecinos sacaron mucha basura y quedo regada en la calle",basura_no_recolectable,
+"el contenedor comunitario esta desbordado desde el fin de semana",basura_no_recolectable,
+"basura organica tirada afuera de las casas sin recoger",basura_no_recolectable,
+"el tiradero improvisado de basura sigue creciendo en la esquina",basura_no_recolectable,
+"hay costales llenos de basura que nadie ha recogido",basura_no_recolectable,
+"la basura del mercado esta regada porque no la recogieron",basura_no_recolectable,
+"los contenedores estan llenos y desbordados de basura",basura_no_recolectable,
+"quedaron bolsas de basura tiradas despues de que paso el camion",basura_no_recolectable,
+"hay basura acumulada en la esquina que atrae fauna nociva",basura_no_recolectable,
+"el basurero esta desbordado y huele muy mal",basura_no_recolectable,
+"el olor a basura podrida se siente desde la esquina",basura_no_recolectable,
+"hay muchisima porqueria acumulada que nadie recoge",basura_no_recolectable,
+"los recipientes de reciclaje estan repletos y derramando",basura_no_recolectable,
+"el camion recolector se descompuso a medio camino",vehiculo_o_contenedor_danado,
+"el motor del camion esta fallando y no arranca",vehiculo_o_contenedor_danado,
+"se poncho una llanta del camion recolector",vehiculo_o_contenedor_danado,
+"el camion tiene una averia en el sistema de frenos",vehiculo_o_contenedor_danado,
+"la bateria del camion esta descargada y no enciende",vehiculo_o_contenedor_danado,
+"hay una fuga de aceite en el motor del camion",vehiculo_o_contenedor_danado,
+"el radiador del camion se sobrecalento a mitad de la ruta",vehiculo_o_contenedor_danado,
+"el compactador del camion dejo de funcionar",vehiculo_o_contenedor_danado,
+"el camion se quedo varado por una falla mecanica",vehiculo_o_contenedor_danado,
+"los frenos del camion estan fallando",vehiculo_o_contenedor_danado,
+"el contenedor de carga esta danado y con fugas",vehiculo_o_contenedor_danado,
+"la tolva del camion tiene un desperfecto",vehiculo_o_contenedor_danado,
+"el camion recolector se averio cerca del mercado",vehiculo_o_contenedor_danado,
+"hay una falla electrica en el camion y no prende",vehiculo_o_contenedor_danado,
+"el embrague del camion esta fallando mucho",vehiculo_o_contenedor_danado,
+"el camion esta descompuesto y no puede seguir la ruta",vehiculo_o_contenedor_danado,
+"una llanta ponchada dejo varado al camion recolector",vehiculo_o_contenedor_danado,
+"el motor hizo un ruido raro y se apago el camion",vehiculo_o_contenedor_danado,
+"el contenedor trasero del camion se dano y no cierra bien",vehiculo_o_contenedor_danado,
+"el camion no tiene diesel suficiente y se quedo parado",vehiculo_o_contenedor_danado,
+"el camion hace un ruido extrano en el motor cada vez que arranca",vehiculo_o_contenedor_danado,
+"se detuvo de golpe el camion y no logra volver a andar",vehiculo_o_contenedor_danado,
+"el aire acondicionado y las luces del camion dejaron de servir",vehiculo_o_contenedor_danado,
+"todo tranquilo en la ruta de hoy sin novedades",otro,
+"hay un perro callejero cerca del punto de recoleccion",otro,
+"los vecinos estan organizando una kermes en la calle",otro,
+"vi mucho trafico en la avenida principal esta manana",otro,
+"hace mucho calor y no hay sombra en varias paradas",otro,
+"un vecino se quejo del ruido del camion muy temprano",otro,
+"la ruta se completo sin ningun problema",otro,
+"hay una persona pidiendo aventon cerca de la ruta",otro,
+"los ninos estaban jugando cerca del camion recolector",otro,
+"todo en orden no hay incidencias que reportar",otro,
+"un vecino pregunto a que hora pasa el camion los sabados",otro,
+"hubo lluvia ligera pero no afecto el recorrido",otro,
+"un gato se subio al camion y hubo que bajarlo",otro,
+"los vecinos agradecieron el servicio de hoy",otro,
+"se reporto una fiesta ruidosa pero no afecta la ruta",otro,
+"un peaton cruzo justo frente al camion sin problema",otro,
+"el clima estuvo agradable durante toda la ruta",otro,
+"un vecino pidio informacion sobre el reciclaje",otro,
+"no hubo ninguna anomalia durante el recorrido de hoy",otro,
+"se vio una ambulancia pasar pero no bloqueo la ruta",otro,
+"encontramos un gatito perdido cerca de la ruta",otro,
+"un vecino saludo amablemente al conductor",otro,
+"todo paso sin contratiempos el dia de hoy",otro,

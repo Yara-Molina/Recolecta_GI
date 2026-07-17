@@ -1,0 +1,181 @@
+{
+  "version": "1.0",
+  "project": "Recolecta",
+  "title": "Grafo de conocimiento-inferencia para clasificacion de reportes",
+  "description": "Adaptacion del ejemplo del profesor a los reportes reales de Recolecta: capas de razonamiento desde el texto libre del reporte hasta la actualizacion del grafo vial y el disparo del algoritmo genetico de rutas.",
+  "layers": [
+    { "id": "texto", "name": "Texto libre", "color": "#455a64" },
+    { "id": "normalizacion", "name": "Limpieza y normalizacion", "color": "#546e7a" },
+    { "id": "senal", "name": "Senales / cues", "color": "#ef6c00" },
+    { "id": "clasificacion", "name": "Clasificacion", "color": "#1565c0" },
+    { "id": "entidad", "name": "Extraccion de entidades", "color": "#2e7d32" },
+    { "id": "regla", "name": "Reglas de inferencia", "color": "#6a1b9a" },
+    { "id": "accion", "name": "Accion sobre grafo vial", "color": "#c62828" },
+    { "id": "efecto", "name": "Efecto / restriccion", "color": "#880e4f" }
+  ],
+  "pipeline": [
+    "texto_libre",
+    "limpieza_normalizacion",
+    "grafo_inferencia",
+    "actualizacion_grafo_vial",
+    "actualizacion_pesos_restricciones",
+    "algoritmo_genetico",
+    "nueva_ruta_optima"
+  ],
+  "concepts": [
+    { "id": "c_reporte", "type": "Concept", "label": "Reporte (conductor o ciudadano)", "layer": "texto" },
+    { "id": "c_norm", "type": "Concept", "label": "Texto normalizado / tokens", "layer": "normalizacion" },
+
+    { "id": "c_calle_tapada", "type": "Class", "label": "calle_tapada", "layer": "clasificacion" },
+    { "id": "c_basura", "type": "Class", "label": "basura_no_recolectable", "layer": "clasificacion" },
+    { "id": "c_vehiculo", "type": "Class", "label": "vehiculo_o_contenedor_danado", "layer": "clasificacion" },
+    { "id": "c_otro", "type": "Class", "label": "otro", "layer": "clasificacion" },
+
+    { "id": "c_severidad", "type": "EntityType", "label": "severidad", "layer": "entidad", "values": ["alta", "media"] },
+    { "id": "c_vigencia", "type": "EntityType", "label": "vigencia", "layer": "entidad", "values": ["temporal", "en_reparacion"] },
+
+    { "id": "a_block_edge", "type": "Action", "label": "block_edge", "layer": "accion" },
+    { "id": "a_inflate_weight", "type": "Action", "label": "inflate_weight", "layer": "accion" },
+    { "id": "a_marcar_mantenimiento", "type": "Action", "label": "marcar_mantenimiento", "layer": "accion" },
+    { "id": "a_none", "type": "Action", "label": "none", "layer": "accion" },
+
+    { "id": "c_blocked", "type": "Constraint", "label": "bandera_bloqueo (edge -> inf)", "layer": "efecto" },
+    { "id": "c_peso_arista", "type": "Cost", "label": "peso_arista (distancia)", "layer": "efecto" },
+    { "id": "c_ga", "type": "Process", "label": "algoritmo_genetico_TSP (algoritmo_genetico_rutas)", "layer": "efecto" }
+  ],
+  "signals": [
+    {
+      "id": "s_calle_tapada",
+      "pattern": "bloque|cerr|obra|tapa|bache|estorb|intransitable|escombro|socavon|derrumbe|atascad|colapsad",
+      "candidate_class": "calle_tapada"
+    },
+    {
+      "id": "s_basura",
+      "pattern": "basura|bolsas|costales|contenedor|desbord|tirad|regad|apestando|porqueria",
+      "candidate_class": "basura_no_recolectable"
+    },
+    {
+      "id": "s_vehiculo",
+      "pattern": "aver[ií]|descompuest|pinchad|frenos|motor|bateria|llanta|radiador",
+      "candidate_class": "vehiculo_o_contenedor_danado"
+    },
+    {
+      "id": "s_sev_alta",
+      "pattern": "urgente|grave|total|completo|completamente|totalmente|toda|colapsad|intransitable",
+      "maps_to": "severidad=alta"
+    },
+    {
+      "id": "s_vig_temporal",
+      "pattern": "temporal|momentaneo|momentanea|rato|ahorita",
+      "maps_to": "vigencia=temporal"
+    }
+  ],
+  "rules": [
+    {
+      "id": "r1",
+      "if": { "categoria": "calle_tapada", "severidad": "alta" },
+      "then": { "accion": "block_edge" },
+      "label": "SI categoria=calle_tapada Y severidad=alta ENTONCES bloqueo duro (cortar la arista mas cercana)"
+    },
+    {
+      "id": "r2",
+      "if": { "categoria": "calle_tapada", "severidad": "media" },
+      "then": { "accion": "inflate_weight" },
+      "label": "SI categoria=calle_tapada Y severidad=media ENTONCES inflar el peso de la arista en vez de cortarla"
+    },
+    {
+      "id": "r3",
+      "if": { "categoria": "basura_no_recolectable" },
+      "then": { "accion": "marcar_mantenimiento" },
+      "label": "SI categoria=basura_no_recolectable ENTONCES marcar para el panel de mantenimiento (no toca el AG)"
+    },
+    {
+      "id": "r4",
+      "if": { "categoria": "vehiculo_o_contenedor_danado" },
+      "then": { "accion": "marcar_mantenimiento" },
+      "label": "SI categoria=vehiculo_o_contenedor_danado ENTONCES marcar para el panel de mantenimiento (no toca el AG)"
+    },
+    {
+      "id": "r5",
+      "if": { "categoria": "otro" },
+      "then": { "accion": "none" },
+      "label": "SI categoria=otro ENTONCES sin accion sobre el grafo vial"
+    }
+  ],
+  "relations": [
+    { "from": "c_reporte", "to": "c_norm", "relation": "normalize", "label": "limpia/tokeniza" },
+    { "from": "c_norm", "to": "s_calle_tapada", "relation": "activates", "label": "activa senal" },
+    { "from": "c_norm", "to": "s_basura", "relation": "activates", "label": "activa senal" },
+    { "from": "c_norm", "to": "s_vehiculo", "relation": "activates", "label": "activa senal" },
+    { "from": "s_calle_tapada", "to": "c_calle_tapada", "relation": "supports", "label": "soporta clase" },
+    { "from": "s_basura", "to": "c_basura", "relation": "supports", "label": "soporta clase" },
+    { "from": "s_vehiculo", "to": "c_vehiculo", "relation": "supports", "label": "soporta clase" },
+    { "from": "c_norm", "to": "c_severidad", "relation": "extracts", "label": "extrae (solo si clase=calle_tapada)" },
+    { "from": "c_norm", "to": "c_vigencia", "relation": "extracts", "label": "extrae (solo si clase=calle_tapada)" },
+    { "from": "s_sev_alta", "to": "c_severidad", "relation": "maps_to", "label": "-> alta" },
+    { "from": "s_vig_temporal", "to": "c_vigencia", "relation": "maps_to", "label": "-> temporal" },
+
+    { "from": "c_calle_tapada", "to": "r1", "relation": "precondition", "label": "precondicion" },
+    { "from": "c_severidad", "to": "r1", "relation": "precondition", "label": "precondicion" },
+    { "from": "c_calle_tapada", "to": "r2", "relation": "precondition", "label": "precondicion" },
+    { "from": "c_severidad", "to": "r2", "relation": "precondition", "label": "precondicion" },
+    { "from": "c_basura", "to": "r3", "relation": "precondition", "label": "precondicion" },
+    { "from": "c_vehiculo", "to": "r4", "relation": "precondition", "label": "precondicion" },
+    { "from": "c_otro", "to": "r5", "relation": "precondition", "label": "precondicion" },
+
+    { "from": "r1", "to": "a_block_edge", "relation": "concludes", "label": "concluye" },
+    { "from": "r2", "to": "a_inflate_weight", "relation": "concludes", "label": "concluye" },
+    { "from": "r3", "to": "a_marcar_mantenimiento", "relation": "concludes", "label": "concluye" },
+    { "from": "r4", "to": "a_marcar_mantenimiento", "relation": "concludes", "label": "concluye" },
+    { "from": "r5", "to": "a_none", "relation": "concludes", "label": "concluye" },
+
+    { "from": "a_block_edge", "to": "c_blocked", "relation": "updates", "label": "corta la arista (distancia -> inf)" },
+    { "from": "a_inflate_weight", "to": "c_peso_arista", "relation": "updates", "label": "multiplica el peso de la arista" },
+    { "from": "c_blocked", "to": "c_ga", "relation": "triggers", "label": "recalcula ruta (evita esa arista)" },
+    { "from": "c_peso_arista", "to": "c_ga", "relation": "feeds", "label": "entra al fitness (distancia total)" }
+  ],
+  "fitness": {
+    "formula": "F = suma(distancia(arista_i, arista_i+1)) para toda la ruta",
+    "notas": "Formula real de algoritmo_genetico_rutas/genetic_route/genetic.py::_fitness - no es la formula generica del ejemplo del profesor (no maneja gasolina/capacidad como terminos separados). Una arista bloqueada (block_edge) queda con distancia=inf en el grafo; si el GA aun asi tiene que pasar por ahi (grafo desconectado), se le aplica un blocked_penalty muy alto en vez de infinito, para que el algoritmo siga siendo numericamente estable.",
+    "hard_constraints": ["bandera_bloqueo (arista con distancia=inf por block_edge)"],
+    "soft_objectives": ["peso_arista (distancia, se puede inflar con inflate_weight - accion pendiente de implementar en el AG)"]
+  },
+  "example_instance": {
+    "id": "ejemplo_calle_tapada_total",
+    "raw_text": "la calle esta completamente cerrada por obra de pavimentacion",
+    "conclusion": {
+      "categoria": "calle_tapada",
+      "severidad": "alta",
+      "vigencia": "en_reparacion",
+      "subtipo": "total_en_reparacion",
+      "regla_aplicada": "r1",
+      "accion": "block_edge"
+    },
+    "nodes": [
+      { "id": "texto_raw", "layer": "texto", "label": "la calle esta completamente cerrada por obra de pavimentacion" },
+      { "id": "texto_norm", "layer": "normalizacion", "label": "tokens: [la, calle, esta, completamente, cerrada, por, obra, de, pavimentacion]" },
+      { "id": "cue_calle_tapada", "layer": "senal", "label": "senal: /cerr\\w*/, /obra\\w*/ -> candidata calle_tapada" },
+      { "id": "class_final", "layer": "clasificacion", "label": "clase: calle_tapada (score=2)" },
+      { "id": "cue_sev_alta", "layer": "senal", "label": "senal: 'completamente' -> severidad=alta" },
+      { "id": "ent_severidad", "layer": "entidad", "label": "severidad: alta" },
+      { "id": "ent_vigencia", "layer": "entidad", "label": "vigencia: en_reparacion (por 'obra')" },
+      { "id": "rule_engine", "layer": "regla", "label": "motor de reglas: evalua r1..r5 en orden" },
+      { "id": "rule_fired", "layer": "regla", "label": "dispara r1: calle_tapada + severidad=alta" },
+      { "id": "action", "layer": "accion", "label": "accion: block_edge" },
+      { "id": "effect", "layer": "efecto", "label": "arista mas cercana al reporte -> distancia=inf" }
+    ],
+    "edges": [
+      { "from": "texto_raw", "to": "texto_norm", "relation": "normalize" },
+      { "from": "texto_norm", "to": "cue_calle_tapada", "relation": "activates" },
+      { "from": "cue_calle_tapada", "to": "class_final", "relation": "classify" },
+      { "from": "texto_norm", "to": "cue_sev_alta", "relation": "activates" },
+      { "from": "cue_sev_alta", "to": "ent_severidad", "relation": "maps_to" },
+      { "from": "texto_norm", "to": "ent_vigencia", "relation": "extracts" },
+      { "from": "class_final", "to": "rule_engine", "relation": "rule_in" },
+      { "from": "ent_severidad", "to": "rule_engine", "relation": "rule_in" },
+      { "from": "rule_engine", "to": "rule_fired", "relation": "fire" },
+      { "from": "rule_fired", "to": "action", "relation": "concludes" },
+      { "from": "action", "to": "effect", "relation": "effect" }
+    ]
+  }
+}
