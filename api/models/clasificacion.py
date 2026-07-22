@@ -12,6 +12,13 @@ class Clasificacion(Base):
     __tablename__ = "clasificaciones"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
+
+    # MULTITENANCY: al igual que modelo_reportes, esta base (SQLite en dev, o
+    # su propio schema MySQL en produccion) no tiene Row-Level Security.
+    # tenant_id obligatorio en cada query del repositorio/router es la unica
+    # barrera de aislamiento -- ver MULTITENANCY_PLAN.md Fase 4.
+    tenant_id: Mapped[int] = mapped_column(Integer, nullable=False, index=True, default=1)
+
     reporte: Mapped[str] = mapped_column(String(2000), nullable=False)
     tiempo: Mapped[int | None] = mapped_column(Integer, nullable=True)
 

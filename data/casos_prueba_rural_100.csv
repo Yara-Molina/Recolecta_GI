@@ -1,0 +1,101 @@
+reporte,categoria_esperada,subtipo_esperado,categoria_obtenida,subtipo_obtenido,severidad,vigencia,confianza,accion,regla_aplicada,ok_categoria,ok_subtipo
+"la brecha esta totalmente cerrada, metieron maquinaria para repararla y va para largo",calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+"un derrumbe tapo por completo el camino de terraceria, ya vino una cuadrilla a trabajar",calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+"el puente se cayo y no se puede cruzar para nada, lo estan reparando",calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+cerraron completamente la vereda porque estan arreglando el drenaje del pueblo,calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+"la unica entrada al ejido esta bloqueada al cien por ciento, hay obra de la alcaldia",calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+"no se puede pasar por ningun lado, estan reparando la carretera desde hace dias",calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+"el camino esta intransitable, una cuadrilla anda arreglando un socavon grande",calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+"toda la brecha quedo tapada por escombro de un derrumbe, estan trabajando ahi",calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+"la calle principal del pueblo esta cerrada por completo, obra de pavimentacion",calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+"el paso esta totalmente bloqueado, hay maquinaria reparando un puente colapsado",calle_tapada,total_en_reparacion,calle_tapada,total_en_reparacion,alta,en_reparacion,1.0,block_edge,r1,True,True
+"el vado esta bien crecido por la lluvia, no se puede pasar de este lado por ahorita",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"un arbol se cayo atravesado y tapa toda la brecha, sera un rato mientras lo quitan",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"hubo un choque y quedo bloqueado todo el camino, nomas sera momentaneo",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"cerraron completo el paso por la fiesta patronal, sera nada mas hoy",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"el arroyo se crecio y no se puede cruzar para nada, ahorita esta muy fuerte",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"la procesion tiene bloqueada toda la calle, va a ser un rato",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"se volco un camion y tapo por completo la via, va a estar asi un momento",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"no se puede pasar, hay una manifestacion que cerro todo el camino",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"el vado crecio mucho con la tormenta de anoche, esta impasable ahorita",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"cerraron toda la brecha por el funeral del señor del rancho, sera solo esta tarde",calle_tapada,total_temporal,calle_tapada,total_temporal,alta,temporal,1.0,block_edge,r1,True,True
+"estan reparando un tramo de la terraceria, dejaron medio camino libre",calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+"una cuadrilla esta tapando baches en la brecha, se puede pasar por un carril",calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+"obra parcial en el camino, un lado esta cerrado por reparacion",calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+"estan arreglando el vado, solo se puede pasar despacio por una orilla",calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+medio camino esta ocupado por maquinaria reparando el drenaje,calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+cerraron un carril de la calle del mercado por obra de bacheo,calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+la cuadrilla dejo la mitad de la brecha libre mientras arreglan un socavon,calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+"reparacion parcial del puente, se puede cruzar solo por un lado",calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+estan reparando cables caidos y estorban un poco el paso en la entrada,calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+"obra de la comisaria ejidal ocupa parte del camino, el resto esta libre",calle_tapada,parcial_en_reparacion,calle_tapada,parcial_en_reparacion,media,en_reparacion,1.0,inflate_weight,r2,True,True
+"un carro se atasco en el lodo y estorba medio camino, sera un rato",calle_tapada,parcial_temporal,calle_tapada,parcial_temporal,media,temporal,1.0,inflate_weight,r2,True,True
+"hay ramas caidas que tapan parte de la brecha, momentaneo nomas",calle_tapada,parcial_temporal,calle_tapada,parcial_temporal,media,temporal,1.0,inflate_weight,r2,True,True
+"un puesto de la feria ocupa medio camino, sera solo por hoy",calle_tapada,parcial_temporal,calle_tapada,parcial_temporal,media,temporal,1.0,inflate_weight,r2,True,True
+"escombro de una casa ocupa parcialmente la vereda, sera un rato mientras lo quitan",calle_tapada,parcial_temporal,calle_tapada,parcial_temporal,media,temporal,1.0,inflate_weight,r2,True,True
+"una vaca muerta en medio del camino estorba el paso, ahorita nomas",calle_tapada,parcial_temporal,calle_tapada,parcial_temporal,media,temporal,1.0,inflate_weight,r2,True,True
+"el arroyo crecio tantito y moja parte del vado, se puede pasar con cuidado un rato",calle_tapada,parcial_temporal,otro,,,,0.0,none,r5,False,False
+"un carro descompuesto esta atravesado a medias en la brecha, momentaneo",calle_tapada,parcial_temporal,calle_tapada,parcial_temporal,media,temporal,0.5,inflate_weight,r2,True,True
+"material de construccion ocupa un lado del camino, va a estar ahi nomas un rato",calle_tapada,parcial_temporal,calle_tapada,parcial_temporal,media,temporal,1.0,inflate_weight,r2,True,True
+"hay piedras sueltas que tapan parte del paso por el derrumbe chiquito, momentaneo",calle_tapada,parcial_temporal,calle_tapada,parcial_temporal,media,temporal,1.0,inflate_weight,r2,True,True
+"hay ganado cruzando y tapan parte de la brecha ahorita, ya se van a mover",calle_tapada,parcial_temporal,calle_tapada,parcial_temporal,media,temporal,1.0,inflate_weight,r2,True,True
+"llevamos como diez dias sin que pase el camion, la basura ya se esta amontonando",basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+los costales de basura estan tirados desde la semana pasada en la entrada del ejido,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+"el contenedor comunitario esta bien desbordado, ya no cabe nada de basura",basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+los perros ya andan rebuscando en la basura tirada porque no la han recogido,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+hay bolsas de basura regadas por todo el camino desde que no vino el camion,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+la gente esta quemando la basura porque el camion no ha pasado en dias,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+el basurero del pueblo esta desbordado y ya huele muy feo,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+no han recogido la basura de la escuela y ya se esta juntando mucho,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+los costales de la cosecha y basura organica estan tirados sin que nadie los recoja,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+la basura del mercado quedo regada porque el camion no alcanzo a pasar,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+"hay demasiada basura acumulada, no cupo todo en la ultima recolecta",basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+los vecinos sacaron la basura pero nadie la recogio y ya lleva dias tirada,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+el contenedor de la plaza esta lleno y desbordado desde hace rato,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+tenemos un tiradero improvisado creciendo porque no pasa el camion seguido,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+la basura de todo el barrio esta regada porque el camion se salto esta semana,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+hay bolsas rotas y basura regada por los animales que buscan comida,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+"ya no cabe basura en el contenedor, esta desbordado desde el domingo",basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+la gente esta dejando la basura en la orilla del camino porque no la recogen,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+el olor a basura podrida se siente desde la entrada del rancho,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+los costales llenos de basura llevan una semana sin que los recojan,basura_no_recolectable,,basura_no_recolectable,,,,1.0,marcar_mantenimiento,r3,True,True
+el camion se atoro en el lodo y no puede seguir la ruta,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+se poncho una llanta del camion en la terraceria y no trae refaccion,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+"el motor del camion esta fallando, hace un ruido muy raro y ya no jala",vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+la bateria del camion se descargo y no prende para nada,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+"el camion se quedo varado a medio camino, parece falla del motor",vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+se le salio el aceite al camion y ya no quiere caminar bien,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+los frenos del camion estan fallando en las bajadas,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+el camion recolector se descompuso subiendo la cuesta,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+la tolva del camion tiene un desperfecto y se le sale la basura,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+el compactador del camion dejo de funcionar a medio recorrido,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+el radiador del camion se sobrecalento subiendo al rancho,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+una llanta ponchada dejo varado al camion cerca del arroyo,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+el camion no tiene diesel suficiente y se quedo parado en la brecha,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+el embrague del camion esta fallando mucho en las subidas,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+el camion averio el motor y no puede terminar la recolecta,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+se atoro el camion en un lodazal y no puede salir por su cuenta,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+el contenedor de carga del camion se daño y se le cae la basura en el camino,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+el camion hace un ruido extraño cada vez que sube una cuesta,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+se detuvo de golpe el camion y ya no arranca,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+las luces del camion dejaron de servir y ya no se puede andar de noche,vehiculo_o_contenedor_danado,,vehiculo_o_contenedor_danado,,,,1.0,marcar_mantenimiento,r4,True,True
+"todo tranquilo por el rancho, la ruta paso sin ningun problema",otro,,otro,,,,0.0,none,r5,True,True
+"hay un perro echado cerca del punto de recoleccion, no molesta a nadie",otro,,otro,,,,0.0,none,r5,True,True
+los vecinos del ejido estaban organizando una kermes para la escuela,otro,,otro,,,,0.0,none,r5,True,True
+hace mucho calor y no hay sombra donde espera el camion,otro,,otro,,,,0.0,none,r5,True,True
+un señor pregunto a que hora pasa el camion los dias de plaza,otro,,otro,,,,0.0,none,r5,True,True
+no hubo ninguna novedad en el recorrido de hoy,otro,,otro,,,,0.0,none,r5,True,True
+unos niños jugaban futbol cerca de donde para el camion,otro,,otro,,,,0.0,none,r5,True,True
+los vecinos agradecieron que el camion llegara hasta el rancho,otro,,otro,,,,0.0,none,r5,True,True
+un gato se subio a la tolva y hubo que bajarlo con cuidado,otro,,otro,,,,0.0,none,r5,True,True
+hace mucho lodo por la lluvia pero no impide el paso del camion,otro,,otro,,,,0.0,none,r5,True,True
+un vecino pregunto sobre el reciclaje en la comunidad,otro,,otro,,,,0.0,none,r5,True,True
+"todo bien en el recorrido, sin incidencias que reportar",otro,,otro,,,,0.0,none,r5,True,True
+vieron pasar una ambulancia pero no afecto la ruta para nada,otro,,otro,,,,0.0,none,r5,True,True
+hay mucho polvo por el viento pero no estorba el camino,otro,,otro,,,,0.0,none,r5,True,True
+los comisariados del ejido mandaron saludos al chofer,otro,,otro,,,,0.0,none,r5,True,True
+un vecino ofrecio cafe al conductor al pasar por su casa,otro,,otro,,,,0.0,none,r5,True,True
+"todo normal, la gente saco su basura a tiempo hoy",otro,,otro,,,,0.0,none,r5,True,True
+no se vio ningun animal suelto en el camino hoy,otro,,otro,,,,0.0,none,r5,True,True
+el clima estuvo agradable durante todo el recorrido por el rancho,otro,,otro,,,,0.0,none,r5,True,True
+los vecinos preguntaron por el horario de recoleccion del proximo mes,otro,,otro,,,,0.0,none,r5,True,True

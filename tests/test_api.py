@@ -36,7 +36,10 @@ def test_health(client):
 def test_clasificar_calle_tapada_total(client):
     r = client.post(
         "/clasificar",
-        json={"reporte": "la calle esta completamente cerrada por obra de pavimentacion"},
+        json={
+            "reporte": "la calle esta completamente cerrada por obra de pavimentacion",
+            "tenant_id": 1,
+        },
     )
     assert r.status_code == 200
     data = r.json()
@@ -54,6 +57,7 @@ def test_clasificar_guarda_origen_e_inferencia_id(client):
             "reporte": "el contenedor esta desbordado y no cabe mas basura",
             "inferencia_id": 42,
             "origen": "conductor",
+            "tenant_id": 1,
         },
     )
     assert r.status_code == 200
@@ -64,17 +68,26 @@ def test_clasificar_guarda_origen_e_inferencia_id(client):
 
 
 def test_clasificar_rechaza_reporte_vacio(client):
-    r = client.post("/clasificar", json={"reporte": ""})
+    r = client.post("/clasificar", json={"reporte": "", "tenant_id": 1})
     assert r.status_code == 422
 
 
 def test_clasificar_rechaza_origen_invalido(client):
-    r = client.post("/clasificar", json={"reporte": "algo", "origen": "vecino_curioso"})
+    r = client.post(
+        "/clasificar", json={"reporte": "algo", "origen": "vecino_curioso", "tenant_id": 1}
+    )
+    assert r.status_code == 422
+
+
+def test_clasificar_rechaza_sin_tenant_id(client):
+    # tenant_id es obligatorio (Fase 4 de multitenancy): sin RLS en esta
+    # base, es el unico filtro de aislamiento entre tenants.
+    r = client.post("/clasificar", json={"reporte": "algo sin tenant"})
     assert r.status_code == 422
 
 
 def test_listar_clasificaciones_paginado(client):
-    r = client.get("/clasificaciones?limit=1&offset=0")
+    r = client.get("/clasificaciones?tenant_id=1&limit=1&offset=0")
     assert r.status_code == 200
     data = r.json()
     assert data["limit"] == 1
@@ -82,15 +95,40 @@ def test_listar_clasificaciones_paginado(client):
     assert data["total"] >= 2  # ya insertamos al menos 2 en pruebas anteriores
 
 
+def test_listar_clasificaciones_requiere_tenant_id(client):
+    r = client.get("/clasificaciones")
+    assert r.status_code == 422
+
+
 def test_obtener_clasificacion_por_id(client):
     creada = client.post(
-        "/clasificar", json={"reporte": "el camion recolector se descompuso a medio camino"}
+        "/clasificar",
+        json={"reporte": "el camion recolector se descompuso a medio camino", "tenant_id": 1},
     ).json()
-    r = client.get(f"/clasificaciones/{creada['id']}")
+    r = client.get(f"/clasificaciones/{creada['id']}?tenant_id=1")
     assert r.status_code == 200
     assert r.json()["categoria"] == "vehiculo_o_contenedor_danado"
 
 
 def test_obtener_clasificacion_inexistente_404(client):
-    r = client.get("/clasificaciones/999999")
+    r = client.get("/clasificaciones/999999?tenant_id=1")
     assert r.status_code == 404
+
+
+def test_obtener_clasificacion_de_otro_tenant_404(client):
+    # Caso central de Fase 5: una clasificacion creada bajo tenant 1 no debe
+    # ser visible al consultarla como tenant 2.
+    creada = client.post(
+        "/clasificar",
+        json={"reporte": "bache enorme junto a la escuela", "tenant_id": 1},
+    ).json()
+    r = client.get(f"/clasificaciones/{creada['id']}?tenant_id=2")
+    assert r.status_code == 404
+
+
+def test_listar_clasificaciones_no_mezcla_tenants(client):
+    client.post("/clasificar", json={"reporte": "reporte de tenant 2 exclusivo", "tenant_id": 2})
+    r = client.get("/clasificaciones?tenant_id=2&limit=50")
+    assert r.status_code == 200
+    data = r.json()
+    assert all(item["tenant_id"] == 2 for item in data["items"])
