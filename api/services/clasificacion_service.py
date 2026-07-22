@@ -28,12 +28,14 @@ class ClasificacionService:
             "tiempo": request.tiempo,
             "inferencia_id": request.inferencia_id,
             "origen": request.origen,
+            "tenant_id": request.tenant_id,
             **resultado,
         }
 
     @staticmethod
     def to_model(payload: dict) -> Clasificacion:
         return Clasificacion(
+            tenant_id=payload["tenant_id"],
             reporte=payload["reporte"],
             tiempo=payload.get("tiempo"),
             inferencia_id=payload.get("inferencia_id"),

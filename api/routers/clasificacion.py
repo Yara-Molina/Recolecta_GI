@@ -45,13 +45,20 @@ def clasificar(request: ClasificacionCreate, db: Session = Depends(get_db)):
     summary="Consultar clasificaciones realizadas",
 )
 def listar_clasificaciones(
+    tenant_id: int = Query(..., ge=1, description="Tenant (municipio) cuyas clasificaciones se quieren consultar. Obligatorio: sin esto se filtraria entre tenants."),
     limit: int = Query(default=20, ge=1, le=100),
     offset: int = Query(default=0, ge=0),
     db: Session = Depends(get_db),
 ):
-    total = db.query(func.count(Clasificacion.id)).scalar() or 0
+    total = (
+        db.query(func.count(Clasificacion.id))
+        .filter(Clasificacion.tenant_id == tenant_id)
+        .scalar()
+        or 0
+    )
     items = (
         db.query(Clasificacion)
+        .filter(Clasificacion.tenant_id == tenant_id)
         .order_by(Clasificacion.id.desc())
         .offset(offset)
         .limit(limit)
@@ -65,8 +72,16 @@ def listar_clasificaciones(
     response_model=ClasificacionRead,
     summary="Consultar una clasificacion por id",
 )
-def obtener_clasificacion(clasificacion_id: int, db: Session = Depends(get_db)):
-    obj = db.get(Clasificacion, clasificacion_id)
+def obtener_clasificacion(
+    clasificacion_id: int,
+    tenant_id: int = Query(..., ge=1, description="Tenant (municipio) dueno de la clasificacion consultada."),
+    db: Session = Depends(get_db),
+):
+    obj = (
+        db.query(Clasificacion)
+        .filter(Clasificacion.id == clasificacion_id, Clasificacion.tenant_id == tenant_id)
+        .first()
+    )
     if obj is None:
         raise HTTPException(status_code=404, detail="Clasificacion no encontrada")
     return obj

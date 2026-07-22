@@ -14,6 +14,7 @@ class ClasificacionCreate(BaseModel):
                 "tiempo": 15,
                 "inferencia_id": 42,
                 "origen": "conductor",
+                "tenant_id": 1,
             }
         }
     )
@@ -22,6 +23,9 @@ class ClasificacionCreate(BaseModel):
     tiempo: int | None = Field(default=None, ge=0, description="Minutos desde el ultimo reporte")
     inferencia_id: int | None = Field(
         default=None, description="Referencia externa a modelo_reportes (no es FK real)"
+    )
+    tenant_id: int = Field(
+        ..., ge=1, description="Tenant (municipio) al que pertenece el reporte. Obligatorio: no hay RLS en esta base."
     )
     origen: str | None = Field(
         default=None,
@@ -59,6 +63,7 @@ class ClasificacionRead(BaseModel):
     )
 
     id: int
+    tenant_id: int
     reporte: str
     tiempo: int | None
     inferencia_id: int | None
